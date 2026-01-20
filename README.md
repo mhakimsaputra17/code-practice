@@ -217,3 +217,37 @@ const arr = ['hello', 'world', 'javascript', 'code'];
 
 ---
 
+### Soal 3B: Sistem E-Commerce Sederhana
+
+Buat database dan API untuk sistem e-commerce.
+
+**Tabel yang diperlukan:**
+```
+produk (id, nama, deskripsi, harga, stok, kategori_id)
+kategori (id, nama_kategori)
+pesanan (id, user_id, total_harga, status, created_at)
+detail_pesanan (id, pesanan_id, produk_id, jumlah, harga_satuan)
+```
+
+**Tasks:**
+1. Buat model Sequelize dengan relasi One-to-Many (kategori → produk) dan Many-to-Many (pesanan ↔ produk via detail_pesanan)
+2. Implementasi endpoint `GET /produk` dengan fitur:
+   - Filter by kategori (`?kategori=electronics`)
+   - Search by nama (`?search=laptop`)
+   - Pagination (`?page=1&limit=10`)
+   - Sort by harga (`?sort=harga&order=asc`)
+3. Implementasi endpoint `POST /pesanan` yang:
+   - Menerima array produk dan jumlah
+   - Validasi stok tersedia
+   - Menghitung total harga otomatis
+   - Mengurangi stok produk
+4. Implementasi endpoint `GET /laporan/penjualan` yang menampilkan:
+   - Total penjualan per kategori
+   - Produk terlaris (top 5)
+
+---
+
+
+
+
+
